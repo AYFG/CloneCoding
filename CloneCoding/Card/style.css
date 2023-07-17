@@ -1,0 +1,105 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff");
+}
+body,
+h3,
+p {
+  margin: initial;
+  padding: unset;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: Pretendard-Regular, sans-serif;
+}
+.wrapper {
+  width: 288px;
+  height: 374px;
+  margin: 0 auto;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 2px 2px 8px 0px #0000001a;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 16px 12px;
+}
+.bread {
+  /* display: block; */
+  width: 39px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.header h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.header p {
+  font-size: 12px;
+  color: #5a6a72;
+}
+.thumbnail {
+  width: 100%;
+  aspect-ratio: 288/196;
+  object-fit: cover;
+}
+.contents {
+  padding: 10px 16px 16px;
+  font-size: 12px;
+  color: #5a6a72;
+  width: 256px;
+  height: 40px;
+}
+.footer {
+  width: 256px;
+  height: 32px;
+}
+.Read {
+  font-size: 14px;
+  text-decoration: underline;
+  position: relative;
+  width: 60px;
+  padding: 3px 20px;
+  font-weight: bold;
+}
+.btn-group {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  gap: 8px;
+}
+button {
+  border: 0;
+  background: none;
+  padding: 0;
+}
+.btn-group button img {
+  width: 32px;
+  vertical-align: top;
+}
+.Read::after {
+  content: "";
+  /* 이 요소는 원래 인라인 */
+  display: block;
+  width: 5px;
+  height: 5px;
+  /* background-color: skyblue; */
+  /* 자기 위치를 잃고 붕 뜬다 */
+  position: absolute;
+  right: 15%;
+  top: 50%;
+  border: 3px solid #29363d;
+  border-width: 3px 3px 0 0;
+  transform: translateY(-50%) rotate(45deg);
+  /* deg = 각도 */
+}
