@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.1/redux.js"></script>
+    <title>with-redux</title>
+    <style>
+      div {
+        border: 3px solid black;
+      }
+      .red {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="red">
+      <p>red</p>
+      <button>fire</button>
+    </div>
+    <div class="green">
+      <p>green</p>
+      <button>fire</button>
+    </div>
+    <div class="blue">
+      <p>blue</p>
+      <button>fire</button>
+    </div>
+    <div class="orange">
+      <p>orange</p>
+      <button>fire</button>
+    </div>
+
+    <script>
+      function reducer(state, action) {
+        console.log(state, action);
+        // 초기화를 위해서 최초로 실행되는 reducer에 대한 호출 undefined
+        if (state === undefined) {
+          return { color: "yellow" };
+        }
+
+        var newState;
+        if (action.type === "CHANGE_COLOR") {
+          newState = Object.assign({}, state, { color: action.color });
+        }
+        return newState;
+      }
+      var store = Redux.createStore(
+        reducer,
+        window.__REDUX_DEVTOOLS_EXTENSION__ &&
+          window.__REDUX_DEVTOOLS_EXTENSION__()
+      );
+      console.log(store.getState());
+
+      function red() {
+        var state = store.getState();
+
+        document.querySelector(".red").innerHTML = `
+        <div class=red style="background-color:${state.color}">
+          <p>Red</p>
+          <button onclick="store.dispatch({type:'CHANGE_COLOR',color:'red'})">fire</button>
+          </div>
+        `;
+      }
+      store.subscribe(red);
+      red();
+
+      function blue() {
+        var state = store.getState();
+
+        document.querySelector(".blue").innerHTML = `
+        <div class=blue style="background-color:${state.color}">
+          <p>blue</p>
+          <button onclick="store.dispatch({type:'CHANGE_COLOR',color:'blue'})">fire</button>
+          </div>
+        `;
+      }
+      store.subscribe(blue);
+      blue();
+      function green() {
+        var state = store.getState();
+
+        document.querySelector(".green").innerHTML = `
+        <div class=green style="background-color:${state.color}">
+          <p>green</p>
+          <button onclick="store.dispatch({type:'CHANGE_COLOR',color:'green'})">fire</button>
+          </div>
+        `;
+      }
+      store.subscribe(green);
+      green();
+
+      function orange() {
+        var state = store.getState();
+
+        document.querySelector(".orange").innerHTML = `
+        <div class=orange style="background-color:${state.color}">
+          <p>orange</p>
+          <button onclick="store.dispatch({type:'CHANGE_COLOR',color:'orange'})">fire</button>
+          </div>
+        `;
+      }
+      store.subscribe(orange);
+      orange();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redux첫장</title>
+  </head>
+  <body>
+    <script>
+      //    redux 예측 가능한 상태의 저장소 자바스크립트 어플리케이션들을 위한
+      //   소프트웨어 개발에서 가장 위험한 "복잡성" - 눈에 보이지 않기 때문에
+      //  Single Source of Truth - 하나의 상태 (객체) 안에 모든 데이터를 우겨 넣는다.
+      // 한 곳에 데이터를 중앙집중관리를 한다.
+      // 인가된 담당자(dispatch)를 통해 데이터를 전달
+      // 데이터를 가져갈때에도 담당자(getState)를 통해 받을 수 있다.
+      // 예기치않게 state의 값이 바뀌는 것을 사전에 차단하기 위해
+      // state의 값이 바뀔 때마다 담당자(subscribe)가 부품들에게 전화를 걸어 지령을 내리는 역할
+
+      // 장점 : undo , redo가 쉽다 각각의 state값을 생성할 때 철저하게 통제하고 만들 때 원본을 바꾸는 것이 아닌 원본을 "복제"하고 복제한 데이터를 수정하기 때문에
+      // 디버거를 통해 애플리케이션의 현재 상태를 볼 수 있는데 redux는 이전의 상태로 돌아가 문제 해결을 쉽게 할 수 있다.
+      // redux의 이러한 특성을 이용하면 module reloading을 할 수 있다 코드를 작성하면 자동으로 애플리케이션에 반영이 된다 hot module reloading이라는 것을 이용하면 애플리케이션은 refresh가 되는데 데이터는 그대로 남아있기 때문에 다시 입력 작업을 할 필요가 없도록 개발환경을 세팅해준다.
+      // 예측가능한 개발
+
+      // 리덕스의 핵심 : store (정보(state)가 모두 저장되는 곳) 그 안에 state()라는 실제 정보가 저장이된다. 직접 조작이 불가하다
+      //  reducer라는 함수를 만들어서 공급해줘야함 store를 만들 때 꼭 줘야하는 인자가 reducer(reducer는 두 개의 인자가 있다.)
+      // render : store안에 있지 않고 우리가 짤 코드 ,state 값을 참조하여 ui를 만든다
+      // state를 직접 조작하지 못하고 담당자에게(dispatch , subscribe , getState)
+      // state값이 바뀔 때마다 알아서 ui가 갱신되게 하는 subscribe
+      // render는 getState 를 거쳐 state 정보를 받는다
+      // action이 dispatch에게 전달이 된다 dispatch는 두가지 일을 하는데 reducer를 호출해서  state의 값을 바꾼다 그 작업이 끝나면 subscribe을 이용해서 lender화면에게 일을 시켜 UI를 바꾼다
+      // dispatch가 reducer를 호출할 때 두 개의 값을 전달한다 현재의 state값과 action객체를 전달한다.
+      // reducer는 state를 입력 값으로 받고 action을 참조해서 새로운 state값을 만들어 return 해주는 state를 가공해주는 가공자이다.
+      // reducer가 return 하는 값이 새로운 state값이 되고 render가 다시 호출이 되야한다. 그것을 dispatch가 subscribe에 등록되어있는 구독자들을 다 호출을 해준다 그리고 render가 다시 화면을 갱신해주면 새로운 state에 맞게 UI가 바뀌게된다.
+
+      reducer;
+    </script>
+  </body>
+</html>
